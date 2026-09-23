@@ -1,0 +1,57 @@
+<section id="section-skills" class="section" aria-labelledby="skills-title">
+  <div class="container">
+    <app-section-header
+      index="02"
+      [title]="'Capability Matrix'"
+      [sub]="'$ cat skills.json | jq . — categorized datastore of the operator environment.'"
+    />
+
+    <div class="skills-stats" appReveal>
+      <div class="stat-box">
+        <span class="stat-num">{{ capabilityCount() }}</span>
+        <span class="stat-label">modules loaded</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">{{ skills.length }}</span>
+        <span class="stat-label">domains</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">{{ projectCount }}</span>
+        <span class="stat-label">deployed projects</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">{{ certCount }}</span>
+        <span class="stat-label">verified badges</span>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      @for (cat of skills; track cat.id) {
+        <article
+          class="skill-card panel"
+          [class.accent-green]="cat.accent === 'green'"
+          [class.accent-cyan]="cat.accent === 'cyan'"
+          [class.accent-purple]="cat.accent === 'purple'"
+          appReveal
+        >
+          <div class="skill-bar">
+            <span class="skill-module">[sys]/{{ cat.id }}</span>
+            <span class="skill-status">STATUS: ONLINE</span>
+          </div>
+
+          <h3 class="skill-title">&gt; {{ cat.label }}</h3>
+
+          <ul class="chip-wrap">
+            @for (item of cat.items; track item) {
+              <li class="chip">{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+
+    <div class="terminal-wrap" appReveal>
+      <app-terminal />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<div class="terminal" (click)="focusInput()" role="log" aria-label="Interactive terminal">
+  <div class="term-top terminal-bar">
+    <span class="term-dots"><i></i><i></i><i></i></span>
+    <span class="term-name">siphosakhe@cyber-dev — PTY/1</span>
+    <span class="term-right">AES-256</span>
+  </div>
+
+  <div class="term-body" #bodyRef>
+    @for (line of lines; track $index) {
+      <p class="line" [class.line-cmd]="line.kind === 'cmd'" [class.line-err]="line.kind === 'err'" [class.line-ok]="line.kind === 'ok'">
+        @if (line.kind === 'cmd') {
+          <span class="prompt">{{ prompt }}</span>
+        }
+        {{ line.text }}
+      </p>
+    }
+
+    <form class="line line-input" (ngSubmit)="run()" autocomplete="off">
+      <label class="prompt" for="term-input">{{ prompt }}</label>
+      <input
+        id="term-input"
+        type="text"
+        [(ngModel)]="input"
+        name="termInput"
+        aria-label="Terminal command"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off"
+      />
+    </form>
+  </div>
+</div>

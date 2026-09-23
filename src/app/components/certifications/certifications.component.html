@@ -1,0 +1,34 @@
+<section id="section-certs" class="section" aria-labelledby="certs-title">
+  <div class="container">
+    <app-section-header
+      index="04"
+      [title]="'Verified Credentials'"
+      [sub]="'$ openssl verify badges.crt — certificates & badges issued and verified.'"
+    />
+
+    <div class="certs-grid">
+      @for (cert of certifications; track cert.title) {
+        <article class="cert-card panel" appReveal>
+          <div class="cert-icon" [attr.data-kind]="cert.kind" aria-hidden="true">
+            @switch (cert.kind) {
+              @case ('code') {
+                <span>&lt;/&gt;</span>
+              }
+              @case ('shield') {
+                <span>&#128737;</span>
+              }
+              @default {
+                <span>&#128736;</span>
+              }
+            }
+          </div>
+          <div class="cert-copy">
+            <h3 class="cert-title">{{ cert.title }}</h3>
+            <p class="cert-issuer">{{ cert.issuer }}</p>
+          </div>
+          <span class="cert-status">VERIFIED &#10003;</span>
+        </article>
+      }
+    </div>
+  </div>
+</section>

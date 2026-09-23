@@ -1,0 +1,122 @@
+<section id="section-contact" class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <app-section-header
+      index="05"
+      [title]="'Secure Transmission'"
+      [sub]="'$ nc -zv contact.pgp 443 — establish an encrypted channel to the operator.'"
+    />
+
+    <div class="contact-grid">
+      <div class="contact-form-panel panel" appReveal>
+        <div class="term-top">
+          <span class="term-dots"><i></i><i></i><i></i></span>
+          <span class="term-name">transmission.pgp — draft</span>
+          <span class="term-right">PGP // 2048</span>
+        </div>
+
+        <form class="trans-form" (ngSubmit)="transmit()" novalidate>
+          <label class="field">
+            <span class="field-label">sender.handle</span>
+            <input
+              type="text"
+              name="handle"
+              placeholder="whoami / your name or @handle"
+              [(ngModel)]="handle"
+              [disabled]="transmitting"
+            />
+          </label>
+
+          <label class="field">
+            <span class="field-label">subject.line</span>
+            <input
+              type="text"
+              name="subject"
+              placeholder="query / collaboration / hackathon"
+              [(ngModel)]="subject"
+              [disabled]="transmitting"
+            />
+          </label>
+
+          <label class="field">
+            <span class="field-label">payload.message</span>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Enter your secure payload here..."
+              [(ngModel)]="message"
+              [disabled]="transmitting"
+            ></textarea>
+          </label>
+
+          <button
+            type="submit"
+            class="btn btn-primary send-btn"
+            [disabled]="transmitting"
+          >
+            {{ transmitting ? 'Encrypting...' : 'Send Encrypted' }}
+          </button>
+
+          @if (status.length) {
+            <div class="tx-log" role="status" aria-live="polite">
+              @for (line of status; track $index) {
+                <p
+                  class="tx-line"
+                  [class.tx-ok]="line.kind === 'ok'"
+                  [class.tx-err]="line.kind === 'err'"
+                >
+                  {{ line.message }}
+                </p>
+              }
+              @if (received) {
+                <div class="tx-finished">
+                  <span class="pulse-dot"></span>
+                  Channel closed — awaiting response on the other end.
+                </div>
+              }
+            </div>
+          }
+        </form>
+      </div>
+
+      <div class="contact-side" appReveal>
+        <p class="contact-message">
+          <span class="quote-mark">&ldquo;</span>
+          {{ contact.message }}
+        </p>
+
+        <ul class="channel-list">
+          <li class="channel">
+            <span class="channel-icon">&#9993;</span>
+            <div class="channel-copy">
+              <span class="channel-label">EMAIL</span>
+              <a class="channel-value" [href]="contact.emailHref">
+                {{ contact.email }}
+              </a>
+            </div>
+          </li>
+          <li class="channel">
+            <span class="channel-icon">&#128279;</span>
+            <div class="channel-copy">
+              <span class="channel-label">GITHUB</span>
+              <span class="channel-value pending" [title]="contact.githubNote">
+                {{ contact.githubLabel }} <em>[pending]</em>
+              </span>
+            </div>
+          </li>
+          <li class="channel">
+            <span class="channel-icon">&#9873;</span>
+            <div class="channel-copy">
+              <span class="channel-label">NODE</span>
+              <span class="channel-value">{{ contact.location }}</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="contact-sig">
+          <span class="sig-key">$ pgp --fingerprint</span>
+          <span class="sig-val">A1B2 C3D4 E5F6 0A9B 8C7D · siphosakhe.dev</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

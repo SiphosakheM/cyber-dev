@@ -1,0 +1,73 @@
+<section id="section-hero" class="hero" aria-label="Introduction">
+  <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <p class="hero-boot">
+      <span class="boot-seq">[BOOT_SEQUENCE]</span>
+      <span class="boot-ok">OK</span>
+      — initializing cyber-dev kernel v1.0.0
+    </p>
+
+    <p class="hero-whoami">
+      <span class="prompt-shell">siphosakhe@cyber-dev</span
+      ><span class="prompt-path">:~$</span>
+      <span class="prompt-cmd">whoami</span>
+    </p>
+
+    <h1 class="hero-name glitch" [attr.data-text]="name">
+      {{ name }}
+    </h1>
+
+    <p class="hero-role" aria-live="polite">
+      <span class="role-prefix">&gt;</span>
+      <span appTypewriter [words]="roles" class="role-type"></span
+      ><span class="caret" aria-hidden="true">&#9608;</span>
+    </p>
+
+    <p class="hero-tagline">
+      Backend-focused software developer exploring the intersection of secure
+      engineering and offensive security.
+    </p>
+
+    <div class="hero-actions">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="goToSection('section-contact')"
+      >
+        Initialize Connection
+      </button>
+      <button
+        type="button"
+        class="btn btn-ghost"
+        (click)="goToSection('section-skills')"
+      >
+        Inspect Capabilities
+      </button>
+    </div>
+
+    <dl class="hero-status" aria-label="System status">
+      <div class="status-item">
+        <dt class="status-key">SYS</dt>
+        <dd class="status-val status-online">
+          <span class="pulse-dot"></span>ONLINE
+        </dd>
+      </div>
+      <div class="status-item">
+        <dt class="status-key">UPLINK</dt>
+        <dd class="status-val">SECURE</dd>
+      </div>
+      <div class="status-item">
+        <dt class="status-key">NODE</dt>
+        <dd class="status-val">WETHINKCODE_</dd>
+      </div>
+      <div class="status-item">
+        <dt class="status-key">CLEARANCE</dt>
+        <dd class="status-val">L3 · PEER TUTOR</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="hero-scanline" aria-hidden="true"></div>
+</section>

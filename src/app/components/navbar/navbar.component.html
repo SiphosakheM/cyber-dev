@@ -1,0 +1,44 @@
+<header class="navbar" [class.open]="menuOpen()">
+  <a
+    class="brand"
+    href="#section-hero"
+    (click)="scrollToId($event, 'hero')"
+    aria-label="Back to top"
+  >
+    <span class="brand-caret">&gt;</span>
+    <span class="brand-path">cyber-dev</span>
+    <span class="brand-branch">[master]</span>
+  </a>
+
+  <button
+    class="burger"
+    [attr.aria-expanded]="menuOpen()"
+    aria-label="Toggle navigation"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-links" [class.visible]="menuOpen()" aria-label="Primary">
+    @for (link of links; track link.id) {
+      <a
+        class="nav-link"
+        [class.is-active]="active() === link.id"
+        [href]="'#section-' + link.id"
+        (click)="scrollToId($event, link.id)"
+      >
+        <span class="nav-probe">./</span
+        ><span class="nav-label">{{ link.label }}</span>
+      </a>
+    }
+    <a
+      class="nav-cta"
+      href="#section-contact"
+      (click)="scrollToId($event, 'contact')"
+    >
+      &gt;_ connect_
+    </a>
+  </nav>
+</header>

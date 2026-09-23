@@ -1,0 +1,50 @@
+<section id="section-projects" class="section" aria-labelledby="projects-title">
+  <div class="container">
+    <app-section-header
+      index="03"
+      [title]="'Deployed Projects'"
+      [sub]="'$ ls ./secure-projects --encrypted  Hover a card to trigger the decryption routine.'"
+    />
+
+    <div class="projects-grid">
+      @for (project of projects; track project.id) {
+        <article
+          class="project-card panel"
+          [class.proj-game]="project.kind === 'game'"
+          [class.proj-security]="project.kind === 'security'"
+          [class.proj-backend]="project.kind === 'backend'"
+          [class.proj-cli]="project.kind === 'cli'"
+          (mouseenter)="decrypt($event, project.title)"
+          appReveal
+        >
+          <div class="scanline" aria-hidden="true"></div>
+
+          <div class="card-glow" aria-hidden="true"></div>
+
+          <div class="card-head">
+            <span class="card-glyph" aria-hidden="true">[&#9658;____]</span>
+            <span class="head-badges">
+              @if (project.kind === 'game') {
+                <span class="game-chip" aria-hidden="true">8-BIT / CRT</span>
+              }
+              <span class="card-context">{{ project.context }}</span>
+            </span>
+          </div>
+
+          <h3 class="project-title">{{ project.title }}</h3>
+
+          <p class="project-desc">{{ project.description }}</p>
+
+          <div class="card-foot">
+            <ul class="tag-list">
+              @for (tag of project.tags; track tag) {
+                <li class="tag">{{ tag }}</li>
+              }
+            </ul>
+            <span class="access-tag">[ DECRYPTED ]</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

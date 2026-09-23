@@ -1,0 +1,80 @@
+<section id="section-about" class="section" aria-labelledby="about-title">
+  <div class="container">
+    <app-section-header
+      index="01"
+      [title]="'Engineering Secure Systems'"
+      [sub]="'$ cat bio.txt — operator dossier focused on robust architecture and offensive-first defense.'"
+    />
+
+    <div class="about-grid">
+      <div class="about-copy" appReveal>
+        <p class="about-lede">
+          I am a <em>backend-focused software developer</em> and
+          <em>peer tutor</em> at
+          <span class="hl hl-green">WeThinkCode_</span>. With a foundational
+          background in mechanical draughting and system design, I transitioned
+          into full-stack development to build robust, scalable architectures.
+        </p>
+        <p class="about-body">
+          I have a deep passion for web security and ethical hacking, actively
+          blending <span class="hl hl-cyan">secure coding practices</span> with
+          hands-on <span class="hl hl-magenta">penetration testing</span>
+          methodologies.
+        </p>
+
+        <ul class="about-focus">
+          @for (focus of about.focuses; track focus) {
+            <li class="focus-item">
+              <span class="focus-arrow">&rsaquo;</span>{{ focus }}
+            </li>
+          }
+        </ul>
+
+        <div class="about-meta">
+          <span class="meta-key">STACK_ROUTE</span>
+          <span class="meta-val">Mechanical Draughting &rarr; Systems &rarr; Full-Stack</span>
+        </div>
+      </div>
+
+      <figure class="about-panel panel" appReveal>
+        <div class="term-top">
+          <span class="term-dots"><i></i><i></i><i></i></span>
+          <span class="term-name">about.txt — siphosakhe</span>
+          <span class="term-right">UTF-8</span>
+        </div>
+        <div class="about-term-body" aria-label="Terminal bio">
+          <p class="t-line">
+            <span class="t-prompt">siphosakhe@cyber-dev:~$</span>
+            <span class="t-cmd">cat about.txt</span>
+          </p>
+          <p class="t-out">
+            <span class="t-kw">[role]</span>
+            Software Developer · Peer Tutor @ WeThinkCode_
+          </p>
+          <p class="t-out">
+            <span class="t-kw">[origin]</span>
+            Mechanical draughting &amp; system design
+          </p>
+          <p class="t-out">
+            <span class="t-kw">[pivot]</span>
+            Transitioned into full-stack engineering
+          </p>
+          <p class="t-out">
+            <span class="t-kw">[focus]</span>
+            Secure code · Web security · Ethical hacking
+          </p>
+          <p class="t-out">
+            <span class="t-kw">[method]</span>
+            OOP · System architecture · Pen-test workflows
+          </p>
+          <p class="t-line">
+            <span class="t-prompt">siphosakhe@cyber-dev:~$</span>
+            <span class="t-cmd">status</span>
+            <span class="t-ok">— CLEARANCE GRANTED</span>
+          </p>
+          <p class="t-cursor">&nbsp;</p>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>

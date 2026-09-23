@@ -1,0 +1,22 @@
+# Angular CLI
+node_modules/
+dist/
+out-tsc/
+.angular/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
