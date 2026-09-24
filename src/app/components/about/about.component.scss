@@ -73,6 +73,11 @@
   font-weight: 700;
 }
 
+.focus-item > .fa-solid {
+  color: var(--cyan);
+  font-size: 0.9rem;
+}
+
 .about-meta {
   display: flex;
   flex-wrap: wrap;

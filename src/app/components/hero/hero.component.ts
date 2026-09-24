@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TypewriterDirective } from '../../directives/typewriter.directive';
-import { HERO_ROLES } from '../../core/content';
+import { CONTACT, HERO_ROLES } from '../../core/content';
 
 @Component({
   selector: 'app-hero',
@@ -11,6 +11,7 @@ import { HERO_ROLES } from '../../core/content';
 })
 export class HeroComponent {
   readonly roles = HERO_ROLES;
+  readonly contact = CONTACT;
   readonly name = 'Siphosakhe Mathews Msimango';
 
   goToSection(id: string): void {

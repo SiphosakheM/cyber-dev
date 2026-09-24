@@ -1,8 +1,8 @@
 # Cyber-Dev
 
-> _Interactive single-page portfolio for **Siphosakhe Mathews Msimango** — Software Developer · Cybersecurity Enthusiast · Peer Tutor_
+> _Interactive single-page portfolio for **Siphosakhe Mathews Msimango** — Full-Stack Developer · Aspiring DevSecOps & Red Team Pentester · Peer Tutor_
 
-A hybrid between a clean modern software portfolio and a terminal-inspired cybersecurity dashboard. Dark slate/black surfaces, terminal-green + neon-blue accents, built with **Angular (standalone components + signals)**.
+A hybrid between a clean modern software portfolio and a terminal-inspired cybersecurity dashboard. Deep slate/black surfaces, terminal-green + neon-blue accents, **Font Awesome** icons across every skill, project, and contact link. Built with **Angular 20 (standalone components + signals) + SCSS + CSS Grid/Flexbox**.
 
 ---
 
@@ -32,7 +32,7 @@ npm install
 npm start
 # or: npx ng serve
 
-# 3. Build for production (outputs to dist/cyber-dev)
+# 3. Build for production (outputs to dist/cyber-dev/browser)
 npm run build
 # or: npx ng build
 ```
@@ -43,8 +43,7 @@ The dev server opens with live-reload at `http://localhost:4200`. Press `q` in t
 
 ```bash
 npm run build
-cd dist/cyber-dev/browser
-npx serve -s .        # or copy the folder to any static host / Firebase / Netlify
+npx serve -s dist/cyber-dev/browser   # or copy the folder to any static host / GitHub Pages / Netlify
 ```
 
 ---
@@ -62,7 +61,7 @@ src/
     ├── app.routes.ts          # lazy route -> HomeComponent
     ├── app.component.*        # root shell (router-outlet + bg grid)
     ├── core/
-    │   └── content.ts         # all portfolio data (edit content here)
+    │   └── content.ts         # ALL portfolio data + FontAwesome icon classes (edit content here)
     ├── directives/
     │   ├── typewriter.directive.ts   # hero typing effect
     │   └── reveal.directive.ts       # intersection-observer scroll reveal
@@ -70,13 +69,13 @@ src/
     │   └── home/home.component.ts    # lazy-loaded page shell
     └── components/
         ├── navbar/            # fixed nav, scroll-spy, mobile menu
-        ├── hero/              # typing roles + glitch name + CTA
+        ├── hero/              # typing roles + glitch name + "Initialize Connection" CTA
         ├── about/             # bio + terminal-style panel
-        ├── skills/            # categorized dashboard + INTERACTIVE terminal
-        ├── projects/          # cards with decrypt/glitch hover
+        ├── skills/            # categorized icon dashboard + INTERACTIVE terminal
+        ├── projects/          # clickable cards (real URLs) + decrypt/glitch hover
         ├── certifications/    # verified badge cards
-        ├── contact/           # "secure transmission" form
-        ├── footer/
+        ├── contact/           # "secure transmission" form + icon links (email/LinkedIn/GitHub)
+        ├── footer/            # social icon links
         ├── section-header/    # reusable section heading
         └── terminal/          # interactive mock shell widget
 ```
@@ -87,14 +86,14 @@ src/
 
 All copy lives in **`src/app/core/content.ts`**:
 
-- name / roles → `HERO_ROLES`
+- hero title → `HERO_ROLES`
 - about copy → `ABOUT`
-- skills → `SKILLS`
-- projects → `PROJECTS` (set `kind: 'game'` on any card to get the 8-bit aesthetic)
+- skills → `SKILLS` (each item = `{ label, icon }` — icons are Font Awesome class strings, e.g. `fa-brands fa-angular`)
+- projects → `PROJECTS` — set `url` (opened via the card link), `icon`, and `kind` (`'game'` gets the 8-bit aesthetic, `wip: true` shows a WIP badge)
 - certifications → `CERTIFICATIONS`
-- contact details → `CONTACT` (replace the GitHub placeholder)
+- contact → `CONTACT` (email, LinkedIn, GitHub, message)
 
-Colors, fonts and spacing tokens live at the top of **`src/styles.scss`** (`--green`, `--cyan`, `--purple`, ...).
+Colors, fonts and spacing tokens live at the top of **`src/styles.scss`** (`--green`, `--cyan`, `--purple`, ...). Font Awesome ships via `@fortawesome/fontawesome-free` (wired into `angular.json` styles).
 
 ---
 
@@ -102,13 +101,13 @@ Colors, fonts and spacing tokens live at the top of **`src/styles.scss`** (`--gr
 
 1. **Typing effect** in the hero (custom `TypewriterDirective`).
 2. **Interactive terminal** in the Skills section — type `help`, `skills`, `projects`, `matrix`, `sudo`, `clear`, ...
-3. **Decrypt hover** on project cards — the title scrambles then settles (JS-driven).
+3. **Decrypt hover** on project cards — titles scramble then settle (JS-driven); cards link out to real project URLs.
 4. **Scroll-spy navbar** + smooth scrolling + scroll-reveal animations.
 5. **"Initialize Connection"** button glides to the contact form.
-6. The contact form runs an animated "secure transmission" sequence before opening a pre-filled mail client.
+6. The contact form runs an animated "secure transmission" sequence before opening a pre-filled mail client; LinkedIn & GitHub open in a new tab.
 
 ---
 
 ## Stack
 
-Angular 20 (standalone, signals, lazy routes · TypeScript · SCSS · CSS Grid/Flexbox) — no external UI libraries.
+Angular 20 (standalone, signals, lazy routes) · TypeScript · SCSS · Font Awesome 7 · CSS Grid/Flexbox — responsive down to small phones.

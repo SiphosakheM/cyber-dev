@@ -50,6 +50,13 @@
   color: var(--muted);
   letter-spacing: 0.1em;
   margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  > .fa-terminal {
+    color: var(--green);
+  }
 }
 
 .boot-seq {

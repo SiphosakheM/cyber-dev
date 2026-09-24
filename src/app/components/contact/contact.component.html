@@ -16,7 +16,7 @@
 
         <form class="trans-form" (ngSubmit)="transmit()" novalidate>
           <label class="field">
-            <span class="field-label">sender.handle</span>
+            <span class="field-label"><i class="fa-solid fa-user" aria-hidden="true"></i> sender.handle</span>
             <input
               type="text"
               name="handle"
@@ -27,7 +27,7 @@
           </label>
 
           <label class="field">
-            <span class="field-label">subject.line</span>
+            <span class="field-label"><i class="fa-solid fa-tag" aria-hidden="true"></i> subject.line</span>
             <input
               type="text"
               name="subject"
@@ -38,7 +38,7 @@
           </label>
 
           <label class="field">
-            <span class="field-label">payload.message</span>
+            <span class="field-label"><i class="fa-solid fa-file-shield" aria-hidden="true"></i> payload.message</span>
             <textarea
               name="message"
               rows="5"
@@ -53,6 +53,7 @@
             class="btn btn-primary send-btn"
             [disabled]="transmitting"
           >
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
             {{ transmitting ? 'Encrypting...' : 'Send Encrypted' }}
           </button>
 
@@ -86,7 +87,13 @@
 
         <ul class="channel-list">
           <li class="channel">
-            <span class="channel-icon">&#9993;</span>
+            <a
+              class="channel-icon"
+              [href]="contact.emailHref"
+              aria-label="Email Siphosakhe Mathews Msimango"
+            >
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
             <div class="channel-copy">
               <span class="channel-label">EMAIL</span>
               <a class="channel-value" [href]="contact.emailHref">
@@ -95,16 +102,53 @@
             </div>
           </li>
           <li class="channel">
-            <span class="channel-icon">&#128279;</span>
+            <a
+              class="channel-icon"
+              [href]="contact.linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile (opens in new tab)"
+            >
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
             <div class="channel-copy">
-              <span class="channel-label">GITHUB</span>
-              <span class="channel-value pending" [title]="contact.githubNote">
-                {{ contact.githubLabel }} <em>[pending]</em>
-              </span>
+              <span class="channel-label">LINKEDIN</span>
+              <a
+                class="channel-value"
+                [href]="contact.linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ contact.linkedinLabel }}
+              </a>
             </div>
           </li>
           <li class="channel">
-            <span class="channel-icon">&#9873;</span>
+            <a
+              class="channel-icon"
+              [href]="contact.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile (opens in new tab)"
+            >
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+            <div class="channel-copy">
+              <span class="channel-label">GITHUB</span>
+              <a
+                class="channel-value"
+                [href]="contact.github"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ contact.githubLabel }}
+              </a>
+            </div>
+          </li>
+          <li class="channel">
+            <span class="channel-icon location" aria-hidden="true">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
             <div class="channel-copy">
               <span class="channel-label">NODE</span>
               <span class="channel-value">{{ contact.location }}</span>

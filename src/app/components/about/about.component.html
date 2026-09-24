@@ -9,30 +9,27 @@
     <div class="about-grid">
       <div class="about-copy" appReveal>
         <p class="about-lede">
-          I am a <em>backend-focused software developer</em> and
-          <em>peer tutor</em> at
-          <span class="hl hl-green">WeThinkCode_</span>. With a foundational
-          background in mechanical draughting and system design, I transitioned
-          into full-stack development to build robust, scalable architectures.
+          Full-stack engineer &middot; aspiring DevSecOps &amp; Red Team
+          pentester &middot; current student &amp; peer tutor at
+          <span class="hl hl-green">WeThinkCode_</span>.
         </p>
-        <p class="about-body">
-          I have a deep passion for web security and ethical hacking, actively
-          blending <span class="hl hl-cyan">secure coding practices</span> with
-          hands-on <span class="hl hl-magenta">penetration testing</span>
-          methodologies.
-        </p>
+        <p class="about-body">{{ about.body }}</p>
 
         <ul class="about-focus">
-          @for (focus of about.focuses; track focus) {
+          @for (focus of about.focuses; track focus.label) {
             <li class="focus-item">
-              <span class="focus-arrow">&rsaquo;</span>{{ focus }}
+              <i class="{{ focus.icon }}" aria-hidden="true"></i>
+              {{ focus.label }}
             </li>
           }
         </ul>
 
         <div class="about-meta">
           <span class="meta-key">STACK_ROUTE</span>
-          <span class="meta-val">Mechanical Draughting &rarr; Systems &rarr; Full-Stack</span>
+          <span class="meta-val"
+            >Drafting &amp; Design &rarr; Electrical &amp; Diesel &rarr;
+            Full-Stack Engineering</span
+          >
         </div>
       </div>
 

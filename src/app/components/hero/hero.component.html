@@ -4,6 +4,7 @@
 
   <div class="container hero-inner">
     <p class="hero-boot">
+      <i class="fa-solid fa-terminal" aria-hidden="true"></i>
       <span class="boot-seq">[BOOT_SEQUENCE]</span>
       <span class="boot-ok">OK</span>
       — initializing cyber-dev kernel v1.0.0
@@ -36,6 +37,7 @@
         class="btn btn-primary"
         (click)="goToSection('section-contact')"
       >
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i>
         Initialize Connection
       </button>
       <button
@@ -43,6 +45,7 @@
         class="btn btn-ghost"
         (click)="goToSection('section-skills')"
       >
+        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
         Inspect Capabilities
       </button>
     </div>
@@ -51,20 +54,29 @@
       <div class="status-item">
         <dt class="status-key">SYS</dt>
         <dd class="status-val status-online">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
           <span class="pulse-dot"></span>ONLINE
         </dd>
       </div>
       <div class="status-item">
         <dt class="status-key">UPLINK</dt>
-        <dd class="status-val">SECURE</dd>
+        <dd class="status-val">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>SECURE
+        </dd>
       </div>
       <div class="status-item">
         <dt class="status-key">NODE</dt>
-        <dd class="status-val">WETHINKCODE_</dd>
+        <dd class="status-val">
+          <i class="fa-solid fa-building-columns" aria-hidden="true"></i
+          >WETHINKCODE_
+        </dd>
       </div>
       <div class="status-item">
         <dt class="status-key">CLEARANCE</dt>
-        <dd class="status-val">L3 · PEER TUTOR</dd>
+        <dd class="status-val">
+          <i class="fa-solid fa-user-graduate" aria-hidden="true"></i
+          >STUDENT · PEER TUTOR
+        </dd>
       </div>
     </dl>
   </div>

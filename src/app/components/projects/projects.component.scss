@@ -99,7 +99,19 @@
 
 .card-glyph {
   color: var(--green);
+  font-size: 1.05rem;
   letter-spacing: 0.04em;
+}
+
+.wip-chip {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #120a00;
+  background: var(--amber);
+  padding: 0.18rem 0.45rem;
+  border-radius: 2px;
+  animation: game-blink 1.4s steps(2) infinite;
 }
 
 .card-context {
@@ -164,6 +176,9 @@
     opacity 0.25s ease,
     transform 0.25s ease;
   letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .project-card:hover .access-tag {

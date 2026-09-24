@@ -8,12 +8,16 @@
 
     <div class="projects-grid">
       @for (project of projects; track project.id) {
-        <article
+        <a
           class="project-card panel"
           [class.proj-game]="project.kind === 'game'"
           [class.proj-security]="project.kind === 'security'"
           [class.proj-backend]="project.kind === 'backend'"
           [class.proj-cli]="project.kind === 'cli'"
+          [href]="project.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="'Open project: ' + project.title"
           (mouseenter)="decrypt($event, project.title)"
           appReveal
         >
@@ -22,8 +26,11 @@
           <div class="card-glow" aria-hidden="true"></div>
 
           <div class="card-head">
-            <span class="card-glyph" aria-hidden="true">[&#9658;____]</span>
+            <i class="card-glyph {{ project.icon }}" aria-hidden="true"></i>
             <span class="head-badges">
+              @if (project.wip) {
+                <span class="wip-chip">WIP</span>
+              }
               @if (project.kind === 'game') {
                 <span class="game-chip" aria-hidden="true">8-BIT / CRT</span>
               }
@@ -41,9 +48,12 @@
                 <li class="tag">{{ tag }}</li>
               }
             </ul>
-            <span class="access-tag">[ DECRYPTED ]</span>
+            <span class="access-tag">
+              <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+              DECRYPTED · OPEN
+            </span>
           </div>
-        </article>
+        </a>
       }
     </div>
   </div>

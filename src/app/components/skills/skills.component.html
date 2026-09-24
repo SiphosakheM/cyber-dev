@@ -39,11 +39,17 @@
             <span class="skill-status">STATUS: ONLINE</span>
           </div>
 
-          <h3 class="skill-title">&gt; {{ cat.label }}</h3>
+          <h3 class="skill-title">
+            <i class="{{ cat.icon }}" aria-hidden="true"></i>
+            &gt; {{ cat.label }}
+          </h3>
 
           <ul class="chip-wrap">
-            @for (item of cat.items; track item) {
-              <li class="chip">{{ item }}</li>
+            @for (item of cat.items; track item.label) {
+              <li class="chip">
+                <i class="{{ item.icon }}" aria-hidden="true"></i>
+                {{ item.label }}
+              </li>
             }
           </ul>
         </article>

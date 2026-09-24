@@ -4,8 +4,36 @@
       <span class="foot-mini">&gt;_</span>
       &copy; {{ year }} Siphosakhe Mathews Msimango &mdash; all systems secure.
     </p>
+
+    <div class="footer-links">
+      <a
+        class="footer-social"
+        [href]="contact.github"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub profile"
+      >
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+        <span>GitHub</span>
+      </a>
+      <a
+        class="footer-social"
+        [href]="contact.linkedin"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn profile"
+      >
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a class="footer-social footer-mail" [href]="contact.emailHref" aria-label="Email">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        <span>Email</span>
+      </a>
+    </div>
+
     <p class="footer-stack">
-      Stack: Angular &middot; SCSS &middot; OpenCode &nbsp;|&nbsp;
+      Stack: Angular &middot; SCSS &middot; FontAwesome &nbsp;|&nbsp;
       <a class="footer-link" href="#section-hero">return to origin ^</a>
     </p>
   </div>

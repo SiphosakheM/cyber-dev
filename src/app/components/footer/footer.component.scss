@@ -29,6 +29,43 @@
   font-weight: 700;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+
+  > .fa-solid,
+  > .fa-brands {
+    color: var(--green);
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+  }
+
+  &.footer-mail > .fa-solid {
+    color: var(--cyan);
+  }
+}
+
 .footer-link {
   color: var(--cyan);
   transition: color 0.18s ease;

@@ -128,6 +128,24 @@
   letter-spacing: 0.04em;
   padding: 1.2rem 1.1rem 0.6rem;
   color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  > .fa-solid,
+  > .fa-brands,
+  > .fa-regular {
+    color: var(--green);
+    font-size: 0.95rem;
+
+    .accent-cyan & {
+      color: var(--cyan);
+    }
+
+    .accent-purple & {
+      color: var(--purple);
+    }
+  }
 }
 
 .chip-wrap {
@@ -136,6 +154,27 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  > .fa-solid,
+  > .fa-brands,
+  > .fa-regular {
+    color: var(--green-dim);
+    font-size: 0.8rem;
+
+    .accent-cyan & {
+      color: var(--cyan);
+    }
+
+    .accent-purple & {
+      color: var(--purple);
+    }
+  }
 }
 
 .terminal-wrap {
